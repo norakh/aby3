@@ -10,6 +10,7 @@
 #include "Sh3Converter.h"
 #include <immintrin.h>
 #include <iomanip>
+#include <thread>
 
 //std::ostream& operator<<(std::ostream& out, const __m256i& block);
 //namespace osuCrypto
@@ -716,7 +717,7 @@ namespace aby3
             for (u64 j = 0; j < 2; ++j)
             {
                 auto x = mMem.mShares[1][in[0]].data();
-                
+
                 if (eq32(x, &mCheckBlock))
                 {
                     mLog << j << " at lvl " << mLevel << " gate " << (mGateIter - mCir->mGates.begin())
